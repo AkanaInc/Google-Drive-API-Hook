@@ -10,6 +10,9 @@ API Hook that takes a string and inserts it to a new file created in a folder ca
 - Access, edit, and save your Google App's files to Google Drive.
 - API Documentation: [Google Drive API docs] (https://developers.google.com/drive/v2/reference/)
 
+### Akana Version
+- 7.2.*
+
 ### Pre-Reqs
 - you must install the pso extensions custom polices:
     + unzip the com.soa.pso.openapi.extensions_7.2.2.zip (available in this repository) into the <Policy Manager Home>/sm70 directory. This will result in files placed in the sm70/lib/pso.opeapi.extensions_7.2.2 subdirectory
@@ -34,13 +37,19 @@ API Hook that takes a string and inserts it to a new file created in a folder ca
 - Copy the clientId of the Service Account
 - login to the  [Google Apps for work Admin Console] (https://admin.google.com) select the security icon, scroll to the botom of the admin page and select the "Show more" link, select the "Advanced Settings" link that appears, then the "Manage API client access" link.
 - in the "Client Name" field paste the Service Account ClientId you coppied, then copy this list of API scopes into the Scopes field and click the "Authorize" button:
-    https://spreadsheets.google.com/feeds,https://www.googleapis.com/auth/drive,https://www.googleapis.com/auth/drive.appdata,https://www.googleapis.com/auth/drive.apps.readonly,https://www.googleapis.com/auth/drive.file,https://www.googleapis.com/auth/drive.metadata.readonly,https://www.googleapis.com/auth/drive.readonly
+    - https://spreadsheets.google.com/feeds
+    - https://www.googleapis.com/auth/drive
+    - https://www.googleapis.com/auth/drive.appdata
+    - https://www.googleapis.com/auth/drive.apps.readonly
+    - https://www.googleapis.com/auth/drive.file
+    - https://www.googleapis.com/auth/drive.metadata.readonly
+    - https://www.googleapis.com/auth/drive.readonly
 
 ### Getting Started Instructions
 #### Download and Import
 - Download GoogleDriveAPIHook.zip
 - Download the migrations.properties file, and edit it to replace the <replace this with your key> text with the "Container Key" of the ND or ND cluster in your target PM.
-    - the container key is found by going to the "Deatils Tab" of the ND cluster, or ND defined in the Policy Manager Console, then looking at the " Container Overview" tab on that page, and copying the "Container Key:" value. ![container key screenshot](https://github.com/pogo61/Google-Sheets-API-Integration/blob/master/Screen%20Shot%202015-03-18%20at%2011.24.45%20am.png "ND Container Key")
+    - the container key is found by going to the "Deatils Tab" of the ND cluster, or ND defined in the Policy Manager Console, then looking at the " Container Overview" tab on that page, and copying the "Container Key:" value. ![container key screenshot](https://github.com/AkanaInc/Google-Sheets-API-Integration/blob/master/Screen%20Shot%202015-03-18%20at%2011.24.45%20am.png "ND Container Key")
 - Login to PolicyManager  example: http://localhost:9900
 - Select the root "Registry" organisation and click on the "Import Package" from the Actions navigation window on the right side of the screen
   - click on button to browse for the GoogleDriveAPIHook.zip archive file 
@@ -73,6 +82,7 @@ API Hook that takes a string and inserts it to a new file created in a folder ca
 #### Verify Connectivity
 - Using  curl http://<ND host URL>/google_drive/helloworld
 - The correct response should be something like (this gets the metadata for your google drive):
+    ```
     {
     "additionalRoleInfo": [
         {
@@ -554,6 +564,7 @@ API Hook that takes a string and inserts it to a new file created in a folder ca
         }
     }
 }
+    ```
 
 ### How Hello World Works
 #### An Akana Integration Primer
@@ -589,4 +600,16 @@ Take a look at the [Google Sheets API Integration](https://github.com/pogo61/Goo
 In the event you need to change the API Hook.   Here are the instructions to do so. 
 
 ### License
-Put a link to an open source license
+Copyright 2015 Akana, Inc.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
