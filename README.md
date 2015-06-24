@@ -4,7 +4,8 @@
 [Akana.com](http://akana.com)
 
 ## Google-Drive-API-Hook
-API Hook that takes a string and inserts it to a new file created in a folder called "Leads" in Google Drive
+API Hook that provides access to the Google Drive API to use in cloud integrations.  
+
 ## Google Drive API 
 ### About the API
 - Access, edit, and save your Google App's files to Google Drive.
